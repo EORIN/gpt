@@ -1,8 +1,8 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
 <form class="mb-3" action="http://localhost:3334/post" method="post">
-    <input placeholder="request" type="text" name="req" class="con form-control">
-    <div class="area form-text border-start m-3 t" name="area">Your response</div>
+    <input placeholder="request" type="text" name="req" class="request form-control">
+    <div class="area form-text border-start m-3 response" name="area">Your response</div>
 <!--    <div class="t">-->
 
     </div>
@@ -12,19 +12,16 @@
 <script>
     $('.btn').on('click', function (e) {
         e.preventDefault()
-        let content = $('.con').val()
-        alert(content)
+        let content = $('.request').val()
+        // alert(content)
         $.ajax({
             type: "POST",
             url: "http://localhost:3333/post",
             data: {data: content},
             dataType: "text",
             encode: true,
-            // e
             success: (result)=>{
-                // console.log(result, 1)
-                $('.t').html(result)
-
+                $('.response').html(result)
             }
         })
     })
