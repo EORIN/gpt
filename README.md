@@ -8,6 +8,9 @@
 ```
 
 ### Start up
+1. Generate new GTP api key https://platform.openai.com/account/api-keys
+2. Rename .env.local.dist to .env.local
+3. In .env.local set GPT_AUTH_TOKEN 
 
 ```bash
 composer install
@@ -15,3 +18,6 @@ symfony serve -d
 ```
 
 Now you could open project on https://127.0.0.1:8000
+
+### Troubles
+If you get ```HTTP/2 401  returned for "https://api.openai.com/v1/chat/completions"``` response, than regenerate GPT token and reset it in .env.local
